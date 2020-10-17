@@ -1,0 +1,24 @@
+{
+	"name": "Trickcord-Treat-Sniper",
+	"version": "3.0.0",
+	"description": "An elegant sniper selfbot for a more civilized age.",
+	"main": "HalloweenSniper.js",
+	"scripts": {
+		"startBot": "node HalloweenSniper.js"
+	},
+	"dependencies": {
+		"eris": "^0.13.2",
+		"js-yaml": "^3.14.0"
+	},
+	"repository": {
+		"url": ""
+	},
+	"license": "GPL-3.0-only",
+	"keywords": [
+		"node",
+		"eris",
+		"discord",
+		"selfbot",
+		"halloween"
+	]
+}
