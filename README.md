@@ -1,5 +1,9 @@
 # Trickcord-Treat-Sniper
-A discord selfbot that automatically responds to `Trick'cord Treat#1944`.
+In the spirit of Halloween, here's something to make you a monster.
+
+A discord selfbot that automatically responds to `Trick'cord Treat#1944`
+
+![Trick'cord Treat Bot](https://miro.medium.com/max/700/1*znYs3T_o7yLyBwY4rPHSvQ.png)
 
 ## Get started
 1. Clone this repository
