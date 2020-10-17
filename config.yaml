@@ -1,0 +1,33 @@
+# Bot (user) token
+token: 'USERTOKEN'
+
+# ID of servers you would like to monitor for the bot in,
+# leave empty [] if you would like to monitor in all servers.
+###
+# When spam is true and no channels are specified, the bot finds
+# channels to spam from the servers in this list.
+serverIds: ['123456']
+
+# ID of the channels you would like to spam in.
+# Can be left blank if spam is false, or if
+# you have inputted a server id in serverIds.
+channelIds: ['123456', '654321']
+
+# Would you like to send (then immediately delete)
+# a message every {$spamInterval} seconds?
+# This option can be used to force the Trick'cord Treat
+# bot to spawn more often.
+spam: false
+
+# Would you like to use the opposite command
+# for the Trick'cord Treat bot so that it leaves
+# and nobody can get the points?
+sabotage: false
+
+# Minimum and maximum wait time (in ms) for claiming
+# the trick or treat from Trick'cord Treat Bot.
+minWait: 500 # 0.5 seconds
+maxWait: 1000 # 1 second
+
+# How often a message gets sent when using the spam feature.
+spamInterval: 30000
