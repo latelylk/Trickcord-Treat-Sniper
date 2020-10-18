@@ -26,7 +26,7 @@ When enabled, the selfbot will respond to the `Trick'cord Treat#1944` bot with t
 ## Options:
 
 ### token
-Input your user token.
+Input your user token. Need help getting your token? [Check the wiki!](https://github.com/latelylk/Trickcord-Treat-Sniper/wiki/Getting-Your-Discord-Token)
 
 Example: `token: '123_Discord_tokeN_456'`
 
