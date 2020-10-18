@@ -7,6 +7,8 @@
   <img src="https://miro.medium.com/max/700/1*znYs3T_o7yLyBwY4rPHSvQ.png" alt="Trick'cord Treat Bot"/>
 </p>
 
+<h5 align="center">⭐ If you like the project, don't forget to leave a star! ⭐</h5>
+
 ## Getting started:
 1. Clone this repository
 2. Edit the config file (options explained in [#options](#options))
