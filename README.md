@@ -1,17 +1,19 @@
-# Trickcord-Treat-Sniper
-In the spirit of Halloween, here's something to make you a monster.
+<h1 align="center">🎃 Trickcord-Treat-Sniper V3 🎃</h1>
+<h3 align="center">In the spirit of Halloween, here's something to make you a monster.</h3>
 
-A discord selfbot that automatically responds to `Trick'cord Treat#1944`
+<h3 align="center">A discord selfbot that automatically responds to Trick'cord Treat#1944</h3>
 
-![Trick'cord Treat Bot](https://miro.medium.com/max/700/1*znYs3T_o7yLyBwY4rPHSvQ.png)
+<p align="center">
+  <img src="https://miro.medium.com/max/700/1*znYs3T_o7yLyBwY4rPHSvQ.png" alt="Trick'cord Treat Bot"/>
+</p>
 
-## Get started
+## Getting started:
 1. Clone this repository
 2. Edit the config file (options explained in [#options](#options))
 3. On first install, run `npm install`
 4. Run `node HalloweenSniper.js`
 
-## Features
+## Features:
 
 ### Spam
 
@@ -21,7 +23,7 @@ When enabled, the selfbot will send a message every {$spamInterval} seconds. Doi
 
 When enabled, the selfbot will respond to the `Trick'cord Treat#1944` bot with the wrong phrase, causing it to leave and award no points to anyone.
 
-## Options
+## Options:
 
 ### token
 Input your user token.
