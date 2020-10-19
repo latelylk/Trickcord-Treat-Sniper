@@ -47,6 +47,16 @@ Enable the spam feature?
 
 Example: `spam: true`
 
+### toSpam
+Specify what messages to send when the spam feature is enabled
+
+Example: `toSpam: ['Hello there', 'Happy Halloween!', 'Trick or Treat!']`
+
+### deleteSpam
+Auto-delete spammed messages as soon as they are sent?
+
+Example: `deleteSpam: true`
+
 ### sabotage
 Enable the sabotage feature?
 
