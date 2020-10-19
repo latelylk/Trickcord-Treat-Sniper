@@ -76,15 +76,19 @@ bot.on('messageCreate', (msg) => {
 	// Then send the command {$waitSet} seconds after message is received
 	const waitSet = (Math.random() * (config.maxWait - config.minWait) + config.minWait);
 
-	if(msg.embeds[0].description.includes('treat')) {
-		setTimeout(function() {
-			bot.createMessage(msg.channel.id, config.treat);
-		}, waitSet);
-	}
-	else if(msg.embeds[0].description.includes('trick')) {
-		setTimeout(function() {
-			bot.createMessage(msg.channel.id, config.trick);
-		}, waitSet);
+	// Check the title of embed to see if this is a trick or treat message
+	if(msg.embeds[0].title === "A trick-or-treater has stopped by!") {
+		// Determine whether to use h!trick or h!treat
+		if(msg.embeds[0].description.includes('treat')) {
+			setTimeout(function() {
+				bot.createMessage(msg.channel.id, config.treat);
+			}, waitSet);
+		}
+		else if(msg.embeds[0].description.includes('trick')) {
+			setTimeout(function() {
+				bot.createMessage(msg.channel.id, config.trick);
+			}, waitSet);
+		}
 	}
 });
 
