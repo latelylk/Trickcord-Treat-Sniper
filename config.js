@@ -1,6 +1,6 @@
 /*
 
-	Hi there! Please do not adjust any settings in this file. Instead,
+	Hello there! Please do not adjust any settings in this file. Instead,
 	make all changes in your config.yaml file.
 
 */
@@ -29,7 +29,11 @@ const defaultCfg = {
 	'serverIds': [],
 	'channelIds': [],
 
+	// Spam settings.
 	'spam': false,
+	'toSpam': [],
+	'deleteSpam': false,
+
 	'sabotage': false,
 
 	'minWait': 500,
@@ -88,23 +92,30 @@ if(finalizedCfg.serverIds[0]) {
 	finalizedCfg.specServer = true;
 }
 
-// If a user specifices spam but doesnt give us a server to spam, we can't do it.
-// Can actually be either channel or server
-if(finalizedCfg.spam && !finalizedCfg.serverIds[0] && !finalizedCfg.channelIds[0]) {
-	console.error('Cannot spam server without a server id or channel id.');
-	process.exit(1);
-}
-
 // If config sabotage is true, swap the values of treat & trick
 if(finalizedCfg.sabotage) {
 	console.log('Sabotage active.');
 	[finalizedCfg.trick, finalizedCfg.treat] = [finalizedCfg.treat, finalizedCfg.trick];
 }
 
+// Make sure we have what we need //
+
+// If a user specifices spam but doesnt give us a server to spam, we can't do it.
+// Can actually be either channel or server
+if(finalizedCfg.spam && !finalizedCfg.serverIds[0] && !finalizedCfg.channelIds[0]) {
+	console.error('Cannot spam server without a server id or channel id in config.yaml.');
+	process.exit(1);
+}
+
+if(finalizedCfg.spam && !finalizedCfg.toSpam[0]) {
+	console.error('Please specify messages to send in config.yaml.');
+	process.exit(1);
+}
+
 // Make sure all of the required config options are present
 for (const opt of requiredOpt) {
 	if (!finalizedCfg[opt]) {
-		console.error(`Missing required option: ${opt}`);
+		console.error('Missing required option: ${opt} in config.yaml');
 		process.exit(1);
 	}
 }

@@ -1,16 +1,23 @@
 const Eris = require('eris');
 const config = require('./config.js');
 
-// Give bot the token
+// Give bot the token and disable certain events
 const bot = new Eris.Client(config.token, {
 	disableEvents: config.disabledEvents,
 });
 
-// Asynchronous spam function. Choose a random channel, sends 'a' message, then deletes it.
+// Asynchronous spam function. Choose a random channel, chooses a message to send from config, then decides whether to deletes it.
 const spammer = async (channelList) => {
 	setInterval(function() {
-		bot.createMessage(channelList[Math.floor(Math.random() * channelList.length)], 'a')
-			.then(msg => msg.delete(1000));
+		// Generate message from possible messages specified in config
+		const spamMsg = config.toSpam[Math.floor(Math.random() * config.toSpam.length)];
+		bot.createMessage(channelList[Math.floor(Math.random() * channelList.length)], spamMsg)
+			.then(msg => {
+				// If delete enabled, deleted the message 1 second after sending
+				if(config.deleteSpam) {
+					msg.delete(1000);
+				}
+			});
 	}, config.spamInterval);
 };
 
@@ -40,6 +47,7 @@ if(config.spam) {
 				spammer(config.channelIds);
 			}, 5000);
 		}
+		// This block is redundant and should be caught by config.js
 		else {
 			console.error('Cannot spam server without a server id or channel id.');
 			process.exit(1);
@@ -60,14 +68,12 @@ bot.on('messageCreate', (msg) => {
 
 	// If server specified, check to see that message is coming from that server.
 	// If not, abort
-	if(config.specServer) {
-		if(!(config.serverIds.indexOf(msg.channel.guild.id) > -1)) {
-			return;
-		}
+	if(config.specServer && (!(config.serverIds.indexOf(msg.channel.guild.id) > -1))) {
+		return;
 	}
 
 	// Check the embed to determine which command is needed
-	// Then send the command waitSet seconds after message is received
+	// Then send the command {$waitSet} seconds after message is received
 	const waitSet = (Math.random() * (config.maxWait - config.minWait) + config.minWait);
 
 	if(msg.embeds[0].description.includes('treat')) {

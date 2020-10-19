@@ -18,6 +18,10 @@ channelIds: ['123456', '654321']
 # This option can be used to force the Trick'cord Treat
 # bot to spawn more often.
 spam: false
+# Messages to send when spam is enabled
+toSpam: ['Hello there', 'Happy Halloween!', 'Trick or Treat!']
+# Would you like spam messages to be auto-deleted?
+deleteSpam: false
 
 # Would you like to use the opposite command
 # for the Trick'cord Treat bot so that it leaves
@@ -29,5 +33,5 @@ sabotage: false
 minWait: 500 # 0.5 seconds
 maxWait: 1000 # 1 second
 
-# How often a message gets sent when using the spam feature.
-spamInterval: 30000
+# How often a message gets sent (in ms) when using the spam feature.
+spamInterval: 30000 # 30 seconds
