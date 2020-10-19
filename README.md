@@ -10,6 +10,7 @@
 <h5 align="center">⭐ If you like the project, don't forget to leave a star! ⭐</h5>
 
 ## Getting started:
+
 1. Clone this repository
 2. Edit the config file (options explained in [#options](#options))
 3. On first install, run `npm install`
@@ -28,46 +29,57 @@ When enabled, the selfbot will respond to the `Trick'cord Treat#1944` bot with t
 ## Options:
 
 ### token
+
+⚠️ **Keep this a secret!** ⚠️
+
 Input your user token. Need help getting your token? [Check the wiki!](https://github.com/latelylk/Trickcord-Treat-Sniper/wiki/Getting-Your-Discord-Token)
 
 Example: `token: '123_Discord_tokeN_456'`
 
 ### serverIds
+
 Input the IDs of the servers you want to respond to `Trick'cord Treat#1944` in.
 
 Example: `serverIds: ['123456789', '987654321']`
 
 ### channelIds
+
 Input the IDs of the channels you want to spam in.
 
 Example: `channelIds: ['123456789']`
 
 ### spam
+
 Enable the spam feature?
 
 Example: `spam: true`
 
 ### toSpam
+
 Specify what messages to send when the spam feature is enabled
 
 Example: `toSpam: ['Hello there', 'Happy Halloween!', 'Trick or Treat!']`
 
 ### deleteSpam
+
 Auto-delete spammed messages as soon as they are sent?
 
 Example: `deleteSpam: true`
 
 ### sabotage
+
 Enable the sabotage feature?
 
 Example: `sabotage: false`
 
 ### minWait and maxWait
+
 Enter a minimum and a maximum amount of time (in milliseconds) to wait before responding to `Trick'cord Treat#1944`.
 
 Example: `minWait: 500` `maxWait: 500`
 
 ### spamInterval
+
 How often (in milliseconds) should the bot send a message when spam is enabled?
 
 Example: `spamInterval: 30000`
