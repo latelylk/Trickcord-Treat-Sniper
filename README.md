@@ -18,13 +18,17 @@
 
 ## Features:
 
-### Spam
+### Claim Delay
 
-When enabled, the selfbot will send a message every {$spamInterval} seconds. Doing this can lead to the `Trick'cord Treat#1944` bot showing up more often.
+Controlled by `minWait` and `maxWait` in config.yaml. The bot will delay for a random amount of time between `minWait` and `maxWait` before claiming the point.
 
 ### Sabotage
 
 When enabled, the selfbot will respond to the `Trick'cord Treat#1944` bot with the wrong phrase, causing it to leave and award no points to anyone.
+
+### Spam
+
+When enabled, the selfbot will send a message every {$spamInterval} seconds. Doing this can lead to the `Trick'cord Treat#1944` bot showing up more often.
 
 ## Options:
 
