@@ -36,10 +36,11 @@ const defaultCfg = {
 
 	'sabotage': false,
 
-	'minWait': 500,
-	'maxWait': 1000,
+	'minClaimDelay': 500,
+	'maxClaimDelay': 1000,
 
-	'spamInterval': 30000,
+	'minSpamDelay': 25000,
+	'maxSpamDelay': 35000,
 
 	// Private settings
 	'trick': 'h!trick',

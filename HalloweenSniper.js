@@ -8,7 +8,11 @@ const bot = new Eris.Client(config.token, {
 
 // Asynchronous spam function. Choose a random channel, chooses a message to send from config, then decides whether to deletes it.
 const spammer = async (channelList) => {
-	setInterval(function() {
+	while(config.spam) {
+		// Generate delay between minSpamDelay and maxSpamDelay
+		const spamDelay = (Math.random() * (config.maxSpamDelay - config.minSpamDelay) + config.minSpamDelay);
+		// Wait for setTimeout of spamDelay
+		await new Promise(resolve => setTimeout(resolve, spamDelay));
 		// Generate message from possible messages specified in config
 		const spamMsg = config.toSpam[Math.floor(Math.random() * config.toSpam.length)];
 		bot.createMessage(channelList[Math.floor(Math.random() * channelList.length)], spamMsg)
@@ -18,7 +22,7 @@ const spammer = async (channelList) => {
 					msg.delete(1000);
 				}
 			});
-	}, config.spamInterval);
+	};
 };
 
 // If config spam is true, enable spam
@@ -74,7 +78,7 @@ bot.on('messageCreate', (msg) => {
 
 	// Check the embed to determine which command is needed
 	// Then send the command {$waitSet} seconds after message is received
-	const waitSet = (Math.random() * (config.maxWait - config.minWait) + config.minWait);
+	const claimDelay = (Math.random() * (config.maxClaimDelay - config.minClaimDelay) + config.minClaimDelay);
 
 	// Check the title of embed to see if this is a trick or treat message
 	if(msg.embeds[0].title === "A trick-or-treater has stopped by!") {
@@ -82,12 +86,12 @@ bot.on('messageCreate', (msg) => {
 		if(msg.embeds[0].description.includes('treat')) {
 			setTimeout(function() {
 				bot.createMessage(msg.channel.id, config.treat);
-			}, waitSet);
+			}, claimDelay);
 		}
 		else if(msg.embeds[0].description.includes('trick')) {
 			setTimeout(function() {
 				bot.createMessage(msg.channel.id, config.trick);
-			}, waitSet);
+			}, claimDelay);
 		}
 	}
 });

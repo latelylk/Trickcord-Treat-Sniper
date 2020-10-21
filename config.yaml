@@ -13,8 +13,7 @@ serverIds: ['123456']
 # you have inputted a server id in serverIds.
 channelIds: ['123456', '654321']
 
-# Would you like to send (then immediately delete)
-# a message every {$spamInterval} seconds?
+# Would you like to auto send messages?
 # This option can be used to force the Trick'cord Treat
 # bot to spawn more often.
 spam: false
@@ -30,8 +29,9 @@ sabotage: false
 
 # Minimum and maximum wait time (in ms) for claiming
 # the trick or treat from Trick'cord Treat Bot.
-minWait: 500 # 0.5 seconds
-maxWait: 1000 # 1 second
+minClaimDelay: 500 # 0.5 seconds
+maxClaimDelay: 1000 # 1 second
 
 # How often a message gets sent (in ms) when using the spam feature.
-spamInterval: 30000 # 30 seconds
+minSpamDelay: 25000 # 25 seconds
+maxSpamDelay: 35000 # 35 seconds
