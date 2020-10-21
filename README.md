@@ -80,10 +80,10 @@ Example: `sabotage: false`
 
 Enter a minimum and a maximum amount of time (in milliseconds) to wait before responding to `Trick'cord Treat#1944`.
 
-Example: `minWait: 500` `maxWait: 500`
+Example: `minClaimDelay: 500` `maxClaimDelay: 1000`
 
-### spamInterval
+### minSpamDelay and maxSpamDelay
 
-How often (in milliseconds) should the bot send a message when spam is enabled?
+Enter a minimum and a maximum amount of time (in milliseconds) for the bot to wait between messages when spam is enabled?
 
-Example: `spamInterval: 30000`
+Example: `minSpamDelay: 25000` `maxSpamDelay: 35000`
