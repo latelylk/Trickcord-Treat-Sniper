@@ -42,6 +42,9 @@ const defaultCfg = {
 	'minSpamDelay': 25000,
 	'maxSpamDelay': 35000,
 
+	'slowmode': false,
+	'slowmodeTime': 605000,
+
 	// Private settings
 	'trick': 'h!trick',
 	'treat': 'h!treat',

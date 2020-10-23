@@ -6,6 +6,24 @@ const bot = new Eris.Client(config.token, {
 	disableEvents: config.disabledEvents,
 });
 
+// For slowmode checking
+let slowmodeDebounce = false;
+
+// Async slowmode function
+const slowDebouncer = async () => {
+	// If debounce is on, return so as not to add an additional timer
+	// This is a just-in-case, shouldnt actually happen
+	if(slowmodeDebounce) {
+		return;
+	}
+	// If debounce is off, start it
+	else {
+		slowmodeDebounce = true;
+		await new Promise(resolve => setTimeout(resolve, config.slowmodeTime));
+		slowmodeDebounce = false;
+	}
+}
+
 // Asynchronous spam function. Choose a random channel, chooses a message to send from config, then decides whether to deletes it.
 const spammer = async (channelList) => {
 	while(config.spam) {
@@ -80,6 +98,18 @@ bot.on('messageCreate', (msg) => {
 	// Then send the command {$waitSet} seconds after message is received
 	const claimDelay = (Math.random() * (config.maxClaimDelay - config.minClaimDelay) + config.minClaimDelay);
 
+	// Check for slowmode. If we're on cooldown, return.
+	// If not on cooldown, start the debounce function and continue as normal.
+	if(config.slowmode) {
+		if(slowmodeDebounce) {
+			console.log("Can't respond, in slowmode");
+			return;
+		}
+		else {
+			slowDebouncer()
+		}
+	}
+	
 	// Check the title of embed to see if this is a trick or treat message
 	if(msg.embeds[0].title === "A trick-or-treater has stopped by!") {
 		// Determine whether to use h!trick or h!treat

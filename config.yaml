@@ -35,3 +35,7 @@ maxClaimDelay: 1000 # 1 second
 # How often a message gets sent (in ms) when using the spam feature.
 minSpamDelay: 25000 # 25 seconds
 maxSpamDelay: 35000 # 35 seconds
+
+# Is a server you're in using slowmode for Trick'cord Treat? If so, enable this.
+slowmode: false
+slowmodeTime: 605000 # 10 minutes and 5 seconds. Change this to your channels slowmode timer (in ms) + 5 seconds
