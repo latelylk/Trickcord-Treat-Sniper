@@ -22,7 +22,7 @@ const slowDebouncer = async () => {
 		await new Promise(resolve => setTimeout(resolve, config.slowmodeTime));
 		slowmodeDebounce = false;
 	}
-}
+};
 
 // Asynchronous spam function. Choose a random channel, chooses a message to send from config, then decides whether to deletes it.
 const spammer = async (channelList) => {
@@ -40,7 +40,7 @@ const spammer = async (channelList) => {
 					msg.delete(1000);
 				}
 			});
-	};
+	}
 };
 
 // If config spam is true, enable spam
@@ -77,8 +77,8 @@ if(config.spam) {
 	});
 }
 
-bot.once('connect', () => {
-	console.log('Bot started.');
+bot.on('connect', () => {
+	console.log('Bot connected.');
 });
 
 // When a message is created
@@ -102,16 +102,16 @@ bot.on('messageCreate', (msg) => {
 	// If not on cooldown, start the debounce function and continue as normal.
 	if(config.slowmode) {
 		if(slowmodeDebounce) {
-			console.log("Can't respond, in slowmode");
+			console.log('Can\'t respond, in slowmode');
 			return;
 		}
 		else {
-			slowDebouncer()
+			slowDebouncer();
 		}
 	}
-	
+
 	// Check the title of embed to see if this is a trick or treat message
-	if(msg.embeds[0].title === "A trick-or-treater has stopped by!") {
+	if(msg.embeds[0].title === 'A trick-or-treater has stopped by!') {
 		// Determine whether to use h!trick or h!treat
 		if(msg.embeds[0].description.includes('treat')) {
 			setTimeout(function() {
@@ -123,6 +123,20 @@ bot.on('messageCreate', (msg) => {
 				bot.createMessage(msg.channel.id, config.trick);
 			}, claimDelay);
 		}
+	}
+});
+
+// Basic error checking/handling
+bot.on('error', async (err) => {
+	if(err['errno'] == 'ENOTFOUND') {
+		console.log('Connection error. Attempting to reconnect...');
+		// On error disconnect bot, wait 5 seconds, reconnect
+		bot.disconnect();
+		await new Promise(resolve => setTimeout(resolve, 5000));
+		bot.connect();
+	}
+	else {
+		console.log(err);
 	}
 });
 
