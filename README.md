@@ -87,3 +87,15 @@ Example: `minClaimDelay: 500` `maxClaimDelay: 1000`
 Enter a minimum and a maximum amount of time (in milliseconds) for the bot to wait between messages when spam is enabled?
 
 Example: `minSpamDelay: 25000` `maxSpamDelay: 35000`
+
+### slowmode
+
+Option for competing in channels with slowmode enabled. If you're trying to bot in a server with slowmode, enable this. See issue #11 for the limitations of this option.
+
+Example: `slowmode: true`
+
+### slowmodeTime
+
+For use with `slowmode`. Enter the time (in ms) of the channel's slowmode timer.
+
+Example: `slowmodeTime: 605000`
