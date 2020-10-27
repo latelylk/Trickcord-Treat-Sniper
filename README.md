@@ -99,3 +99,7 @@ Example: `slowmode: true`
 For use with `slowmode`. Enter the time (in ms) of the channel's slowmode timer.
 
 Example: `slowmodeTime: 605000`
+
+## Disclaimer
+
+userbots/selfbots are against the TOS so anyone that uses this could get their account banned. - #13
